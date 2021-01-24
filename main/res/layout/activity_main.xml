@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    tools:context=".MainActivity"
+    android:transitionGroup="true">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center"
+        android:maxHeight="200dp"
+        android:scaleType="fitCenter"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/plant"
+        android:theme="@style/Base.TextAppearance.AppCompat" />
+
+    <LinearLayout android:id="@+id/LinearLayout"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Turn On"
+            android:id="@+id/button"
+            android:clickable="true"
+            android:onClick="on" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Connect"
+            android:onClick="connect"
+            android:id="@+id/button5"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Get visible"
+            android:onClick="visible"
+            android:id="@+id/button2" />
+
+<!--        <Button-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="List devices"-->
+<!--            android:onClick="list"-->
+<!--            android:id="@+id/button3" />-->
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="turn off"
+            android:onClick="off"
+            android:id="@+id/button4" />
+    </LinearLayout>
+
+<!--    <ListView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/listView"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_below="@+id/textView" />-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paired devices:"
+        android:id="@+id/textView"
+        android:textColor="#ff34ff06"
+        android:textSize="25dp"
+        android:layout_below="@+id/LinearLayout" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="16dp"
+        android:text="Output:"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff34ff06"
+        android:textSize="25dp" />
+
+</RelativeLayout>
