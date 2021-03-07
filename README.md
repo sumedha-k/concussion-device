@@ -12,10 +12,10 @@ BMES Design Team Concussion Detection Device
 
 ### Winter 2021
 [Week 2](https://docs.google.com/presentation/d/1RyU_aoMwADjmPdsyJ9x6CW8hnduN41Iho3e2wQ8GloA/edit?usp=sharing): Starting Implementation
-[Week 3](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)
-[Week 4](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)
-[Week 5](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)
-[Week 6](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)
-[Week 7](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)
-[Week 8](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)
-[Week 9](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)
+[Week 3](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)  
+[Week 4](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)  
+[Week 5](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)  
+[Week 6](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)  
+[Week 7](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)  
+[Week 8](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)  
+[Week 9](https://docs.google.com/presentation/d/1rLN6eExoGj89swncmkG5wJ3ity5GDnCA5ZUHoR4RCFU/edit?usp=sharing)  
