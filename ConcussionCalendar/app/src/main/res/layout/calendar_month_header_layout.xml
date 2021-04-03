@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/headerTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textSize="26sp"
+        android:background="@color/purple_700"
+        tools:text="October 2019" />
+
+    <!-- add days of the week in another TextView right below header -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+#Thu Mar 25 20:46:42 PDT 2021
+base.0=/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex

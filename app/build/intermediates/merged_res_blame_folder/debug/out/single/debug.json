@@ -1,0 +1,110 @@
+[
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/layout_fragment_faq.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/layout/fragment_faq.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/drawable_ic_baseline_text_snippet_24.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/drawable/ic_baseline_text_snippet_24.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/drawable_ic_baseline_get_app_24.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/drawable/ic_baseline_get_app_24.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/drawable_ic_baseline_home_24.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/drawable/ic_baseline_home_24.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/drawable_ic_baseline_not_listed_location_24.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/drawable/ic_baseline_not_listed_location_24.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/layout_fragment_home.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/menu_top_app_bar.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/menu/top_app_bar.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/drawable_ic_baseline_bluetooth_24.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/drawable/ic_baseline_bluetooth_24.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/drawable_ic_baseline_event_24.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/drawable/ic_baseline_event_24.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/menu_bottom_nav.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/menu/bottom_nav.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/layout_fragment_calendar.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/layout/fragment_calendar.xml"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/juliazhong/Desktop/design team/concussion-device/app/build/intermediates/res/merged/debug/layout_fragment_newsfeed.xml.flat",
+        "source": "/Users/juliazhong/Desktop/design team/concussion-device/app/src/main/res/layout/fragment_newsfeed.xml"
+    }
+]
