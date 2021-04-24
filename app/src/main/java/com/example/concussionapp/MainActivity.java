@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private final float SAMPLE_RATE = 90;
     private final float SAMPLE_PERIOD = 1 / SAMPLE_RATE;
 
+    private boolean send = true;
+
 
     public final static UUID HM_RX_TX =
             UUID.fromString(SampleGattAttributes.HM_RX_TX);
@@ -145,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             } else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
                 // Show all the supported services and characteristics on the user interface.
                 displayGattServices(mBluetoothLeService.getSupportedGattServices());
-            } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
+            } else if (send && BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
                 viewModel.sendBtData(intent
                         .getStringExtra(BluetoothLeService.EXTRA_DATA));
             }
@@ -412,6 +414,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     public void update(View view) {
+        send = true;
         if (mGattCharacteristics != null) {
             for (ArrayList<BluetoothGattCharacteristic> characteristicList : mGattCharacteristics) {
                 for (BluetoothGattCharacteristic characteristic : characteristicList) {
@@ -437,6 +440,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 }
             }
         }
+    }
+
+    public void stop(View view) {
+        send = false;
     }
 
     @Override
