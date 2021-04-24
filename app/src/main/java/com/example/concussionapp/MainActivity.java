@@ -65,8 +65,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     BluetoothLeScanner mBluetoothScanner;
     TextView mDeviceView;
 
-    private ServiceConnection mServiceConnection = null;
-    Intent gattServiceIntent;
 
     private boolean mScanning;
     private Handler mHandler;
@@ -107,6 +105,26 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
 
+    // Code to manage Service lifecycle.
+    private final ServiceConnection mServiceConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder service) {
+            mBluetoothLeService = ((BluetoothLeService.LocalBinder) service).getService();
+            if (!mBluetoothLeService.initialize()) {
+                Log.e(TAG, "Unable to initialize Bluetooth");
+                finish();
+            }
+            // Automatically connects to the device upon successful start-up initialization.
+            mBluetoothLeService.connect(mDeviceAddress);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+            mBluetoothLeService = null;
+        }
+    };
+
     // Handles various events fired by the Service.
     // ACTION_GATT_CONNECTED: connected to a GATT server.
     // ACTION_GATT_DISCONNECTED: disconnected from a GATT server.
@@ -139,7 +157,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        gattServiceIntent = new Intent(this, BluetoothLeService.class);
+        final Intent intent = getIntent();
+        mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
+        mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
+
+        Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
+        bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
 
         viewModel = new ViewModelProvider(this).get(DataViewModel.class);
 

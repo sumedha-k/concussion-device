@@ -138,6 +138,7 @@ public class DeviceScan extends AppCompatActivity implements Toolbar.OnMenuItemC
                         mBluetoothScanner.stopScan(mLeScanCallback);
                         mScanning = false;
                     }
+                    startActivity(intent);
                 }
             });
             builder.show();
