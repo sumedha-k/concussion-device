@@ -152,34 +152,34 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         materialToolbar = findViewById(R.id.topAppBar);
         materialToolbar.setOnMenuItemClickListener(this);
 
-        mHandler = new Handler();
-
-        // Use this check to determine whether BLE is supported on the device.  Then you can
-        // selectively disable BLE-related features.
-        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
-            Toast.makeText(this, "BLE is not supported", Toast.LENGTH_SHORT).show();
-            finish();
-        }
-
-        // Initializes a Bluetooth adapter.  For API level 18 and above, get a reference to
-        // BluetoothAdapter through BluetoothManager.
-        final BluetoothManager bluetoothManager =
-                (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
-        mBluetoothAdapter = bluetoothManager.getAdapter();
-        mBluetoothScanner = mBluetoothAdapter.getBluetoothLeScanner();
-
-        // Checks if Bluetooth is supported on the device.
-        if (mBluetoothAdapter == null) {
-            Toast.makeText(this, "Bluetooth not supported", Toast.LENGTH_SHORT).show();
-            finish();
-            return;
-        }
-
-        mLeDeviceListAdapter = new LeDeviceListAdapter();
-
-        scanSettings = new ScanSettings.Builder()
-                .setScanMode(ScanSettings.SCAN_MODE_LOW_POWER)
-                .build();
+//        mHandler = new Handler();
+//
+//        // Use this check to determine whether BLE is supported on the device.  Then you can
+//        // selectively disable BLE-related features.
+//        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
+//            Toast.makeText(this, "BLE is not supported", Toast.LENGTH_SHORT).show();
+//            finish();
+//        }
+//
+//        // Initializes a Bluetooth adapter.  For API level 18 and above, get a reference to
+//        // BluetoothAdapter through BluetoothManager.
+//        final BluetoothManager bluetoothManager =
+//                (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+//        mBluetoothAdapter = bluetoothManager.getAdapter();
+//        mBluetoothScanner = mBluetoothAdapter.getBluetoothLeScanner();
+//
+//        // Checks if Bluetooth is supported on the device.
+//        if (mBluetoothAdapter == null) {
+//            Toast.makeText(this, "Bluetooth not supported", Toast.LENGTH_SHORT).show();
+//            finish();
+//            return;
+//        }
+//
+//        mLeDeviceListAdapter = new LeDeviceListAdapter();
+//
+//        scanSettings = new ScanSettings.Builder()
+//                .setScanMode(ScanSettings.SCAN_MODE_LOW_POWER)
+//                .build();
     }
 
     Home homeFragment = new Home();
@@ -217,116 +217,108 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        String[] items = {"Device 1", "Device 2", "Device 3"}; // Replace with array of the bluetooth devices
-
-        if (item.getItemId() == R.id.bluetooth) {
-            scanLeDevice(true);
-//            new AlertDialog.Builder(this).setTitle("Select Bluetooth Device").setItems(items, ((dialog, which) -> {
-//                Log.i("a", "b");
-//                // Replace above line with a function that takes in which (an integer designating which
-//                // item was clicked) as a parameter and then connect to the corresponding bluetooth
-//                // device.
-//            })).show();
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            //inflate layout from xm
-            builder.setAdapter(mLeDeviceListAdapter, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    final BluetoothDevice device = mLeDeviceListAdapter.getDevice(which);
-                    Log.i("connected:", device.getName());
-                    if (device == null) return;
-                    // TODO: connect to Bluetooth here and start graph activity
-                    mDeviceName = device.getName();
-                    mDeviceAddress = device.getAddress();
-
-
-                    //TODO: need to debug this part, serviceConnection isn't initialized
-                    
-                    // Code to manage Service lifecycle.
-                    mServiceConnection = new ServiceConnection() {
-
-                        @Override
-                        public void onServiceConnected(ComponentName componentName, IBinder service) {
-                            mBluetoothLeService = ((BluetoothLeService.LocalBinder) service).getService();
-                            if (!mBluetoothLeService.initialize()) {
-                                Log.e(TAG, "Unable to initialize Bluetooth");
-                                finish();
-                            }
-                            // Automatically connects to the device upon successful start-up initialization.
-                            mBluetoothLeService.connect(mDeviceAddress);
-                        }
-
-                        @Override
-                        public void onServiceDisconnected(ComponentName componentName) {
-                            mBluetoothLeService = null;
-                        }
-                    };
-
-                    bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
-
-//                    final Intent intent = new Intent(this, DeviceControlActivity.class);
-//                    intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
-//                    intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
-                    if (mScanning) {
-                        mBluetoothScanner.stopScan(mLeScanCallback);
-                        mScanning = false;
-                    }
-                }
-            });
-            builder.show();
-            return true;
-        }
-        return false;
+        return true;
     }
-
-    private void scanLeDevice(final boolean enable) {
-        ;
-        if (enable) {
-            // Stops scanning after a pre-defined scan period.
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    mScanning = false;
-                    mBluetoothScanner.stopScan((ScanCallback) mLeScanCallback);
-                    invalidateOptionsMenu();
-                }
-            }, SCAN_PERIOD);
-
-            // Filter for only HM-10 Modules
-            mScanning = true;
-            UUID BLE_MODULE = UUID.fromString("0000FFE0-0000-1000-8000-00805F9B34FB");
-            UUID[] uuid = new UUID[]{BLE_MODULE};
-            List<ScanFilter> filters = null;
-            if (uuid != null) {
-                filters = new ArrayList<>();
-                for (UUID serviceUUID : uuid) {
-                    ScanFilter filter = new ScanFilter.Builder()
-                            .setServiceUuid(new ParcelUuid(serviceUUID))
-                            .build();
-                    filters.add(filter);
-                }
-            }
-            mBluetoothScanner.startScan(filters, scanSettings, mLeScanCallback);
-        } else {
-            mScanning = false;
-            mBluetoothScanner.stopScan(mLeScanCallback);
-        }
-        invalidateOptionsMenu();
-    }
-
-    // Device scan callback
-    private ScanCallback mLeScanCallback =
-            new ScanCallback() {
-                @Override
-                public void onScanResult(int callbackType, ScanResult result) {
-                    super.onScanResult(callbackType, result);
-                    mLeDeviceListAdapter.addDevice(result.getDevice());
-                    mLeDeviceListAdapter.notifyDataSetChanged();
-//                    Log.i("result:", result.toString()); // check if scan is working
-//                    BluetoothDevice btDevice = result.getDevice();
-                }
-            };
+//        String[] items = {"Device 1", "Device 2", "Device 3"}; // Replace with array of the bluetooth devices
+//
+//        if (item.getItemId() == R.id.bluetooth) {
+//            scanLeDevice(true);
+//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//            //inflate layout from xm
+//            builder.setAdapter(mLeDeviceListAdapter, new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//                    final BluetoothDevice device = mLeDeviceListAdapter.getDevice(which);
+//                    Log.i("connected:", device.getName());
+//                    if (device == null) return;
+//                    // TODO: connect to Bluetooth here and start graph activity
+//                    mDeviceName = device.getName();
+//                    mDeviceAddress = device.getAddress();
+//
+//
+//                    //TODO: need to debug this part, serviceConnection isn't initialized
+//
+//                    // Code to manage Service lifecycle.
+//                    mServiceConnection = new ServiceConnection() {
+//
+//                        @Override
+//                        public void onServiceConnected(ComponentName componentName, IBinder service) {
+//                            mBluetoothLeService = ((BluetoothLeService.LocalBinder) service).getService();
+//                            if (!mBluetoothLeService.initialize()) {
+//                                Log.e(TAG, "Unable to initialize Bluetooth");
+//                                finish();
+//                            }
+//                            // Automatically connects to the device upon successful start-up initialization.
+//                            mBluetoothLeService.connect(mDeviceAddress);
+//                        }
+//
+//                        @Override
+//                        public void onServiceDisconnected(ComponentName componentName) {
+//                            mBluetoothLeService = null;
+//                        }
+//                    };
+//
+//                    bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+//
+////                    final Intent intent = new Intent(this, DeviceControlActivity.class);
+////                    intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+////                    intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+//                    if (mScanning) {
+//                        mBluetoothScanner.stopScan(mLeScanCallback);
+//                        mScanning = false;
+//                    }
+//                }
+//            });
+//            builder.show();
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    private void scanLeDevice(final boolean enable) {
+//        if (enable) {
+//            // Stops scanning after a pre-defined scan period.
+//            mHandler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    mScanning = false;
+//                    mBluetoothScanner.stopScan((ScanCallback) mLeScanCallback);
+//                    invalidateOptionsMenu();
+//                }
+//            }, SCAN_PERIOD);
+//
+//            // Filter for only HM-10 Modules
+//            mScanning = true;
+//            UUID BLE_MODULE = UUID.fromString("0000FFE0-0000-1000-8000-00805F9B34FB");
+//            UUID[] uuid = new UUID[]{BLE_MODULE};
+//            List<ScanFilter> filters = null;
+//            if (uuid != null) {
+//                filters = new ArrayList<>();
+//                for (UUID serviceUUID : uuid) {
+//                    ScanFilter filter = new ScanFilter.Builder()
+//                            .setServiceUuid(new ParcelUuid(serviceUUID))
+//                            .build();
+//                    filters.add(filter);
+//                }
+//            }
+//            mBluetoothScanner.startScan(filters, scanSettings, mLeScanCallback);
+//        } else {
+//            mScanning = false;
+//            mBluetoothScanner.stopScan(mLeScanCallback);
+//        }
+//        invalidateOptionsMenu();
+//    }
+//
+//    // Device scan callback
+//    private ScanCallback mLeScanCallback =
+//            new ScanCallback() {
+//                @Override
+//                public void onScanResult(int callbackType, ScanResult result) {
+//                    super.onScanResult(callbackType, result);
+//                    mLeDeviceListAdapter.addDevice(result.getDevice());
+//                    mLeDeviceListAdapter.notifyDataSetChanged();
+//                }
+//            };
 
 
     private class LeDeviceListAdapter extends BaseAdapter {
