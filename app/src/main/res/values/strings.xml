@@ -22,4 +22,13 @@
     <string name="menu_disconnect">Disconnect</string>
     <string name="menu_scan">Scan</string>
     <string name="menu_stop">Stop</string>
+
+    <string name="symp_header">Symptom Check</string>
+
+    <string name="symp_text1">Headache</string>
+    <string name="symp_text2">Fatigue</string>
+    <string name="symp_text3">Nausea</string>
+
+    <string name="lower_lim">1</string>
+    <string name="upper_lim">10</string>
 </resources>
