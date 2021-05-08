@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home" />
+    <item android:id="@+id/calendar"
+        android:icon="@drawable/ic_baseline_event_24"
+        android:title="Calendar" />
+    <item android:id="@+id/newsfeed"
+        android:icon="@drawable/ic_baseline_text_snippet_24"
+        android:title="Newsfeed" />
+    <item android:id="@+id/faq"
+        android:icon="@drawable/ic_baseline_not_listed_location_24"
+        android:title="FAQ" />
+</menu>
