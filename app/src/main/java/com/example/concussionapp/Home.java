@@ -2,12 +2,14 @@ package com.example.concussionapp;
 
 import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
@@ -44,6 +46,8 @@ public class Home extends Fragment {
     private final float SAMPLE_RATE = 90;
     private final float SAMPLE_PERIOD = 1/SAMPLE_RATE;
 
+    private DataViewModel viewModel;
+
     public Home() {
         // Required empty public constructor
     }
@@ -69,6 +73,7 @@ public class Home extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -118,6 +123,17 @@ public class Home extends Fragment {
         y2.setEnabled(false);
 
         feedMultiple();
+
+        viewModel = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
+        final Observer<String> dataObserver = new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable final String newData) {
+                // Update the UI, in this case, a TextView.
+                int out = displayData(newData);
+                addEntry(out);
+            }
+        };
+        viewModel.getBtData().observe(getViewLifecycleOwner(), dataObserver);
 
         return view;
     }
@@ -178,5 +194,18 @@ public class Home extends Fragment {
         });
 
         thread.start();
+    }
+
+    public int displayData(String str) {
+        if(str == null) {
+            return 0;
+        }
+        String[] strArr = str.split("\n");
+        System.out.println("String Data: " + strArr[0]);
+        int pt = 0;
+        if(!strArr[0].equals("d3ے{�")) {
+            pt = Integer.parseInt(strArr[0]);
+        }
+        return pt;
     }
 }
