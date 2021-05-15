@@ -12,14 +12,13 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         app:cv_dayViewResource="@layout/calendar_day_layout"
+        app:cv_monthHeaderResource="@layout/calendar_month_header_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="#6b73e2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!-- after setting header stuff, put app:cv_monthHeaderResource="@layout/calendar_month_header_layout" underneath the cv_dayViewResource reference -->
 
     <!-- this is the default stuff that was in here -->
     <!-- <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
