@@ -431,6 +431,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         send = false;
     }
 
+    public void save(View view) {}
+
     @Override
     protected void onResume() {
         super.onResume();
