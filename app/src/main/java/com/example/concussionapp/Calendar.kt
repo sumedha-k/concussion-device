@@ -41,6 +41,7 @@ class Calendar : Fragment() {
     private val binding get() = _binding!!
 
     private var selectedDate: LocalDate? = null
+    private val today = LocalDate.now()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -121,12 +122,12 @@ class Calendar : Fragment() {
                     if (day.date == selectedDate) {
                         // If this is the selected date, show a round background and change the text color.
                         // textView.setTextColor(Color.rgb(0x65,0x68,0xb8)) // same color as dayView background, figure out how to do this by referencing the color variable i made in colors.xml
-                        textView.setTextColor(Color.rgb(0x37, 0x00, 0xb3)) // same color as header background
-                        // textView.setTextColor(Color.BLACK)
+                        textView.setTextColor(Color.WHITE) // same color as header background
                         textView.setBackgroundResource(R.drawable.selection_background)
                     } else {
                         // If this is NOT the selected date, remove the background and reset the text color.
-                        textView.setTextColor(Color.rgb(0x37, 0x00, 0xb3))
+                        // textView.setTextColor(Color.rgb(0x37, 0x00, 0xb3))
+                        textView.setTextColor(Color.BLACK)
                         textView.background = null
                     }
                 } else {
@@ -135,6 +136,9 @@ class Calendar : Fragment() {
                     textView.alpha = 0.2f // sets in and outDates to 50% opacity of above color. if you don't specify color in line above, automatically does gray
                     // Hide in and out dates
                     // textView.visibility = View.INVISIBLE
+                }
+                if (day.date == today) {
+                    textView.setTextColor(getResources().getColor(R.color.bmes_color))
                 }
             }
         }

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:textSize="26sp"
-        android:background="@color/purple_700"
+        android:background="@color/bmes_color"
         tools:text="October 2019" />
 
     <!-- add days of the week in another TextView right below header -->

@@ -4,7 +4,7 @@
     android:gravity="center" >
 
     <solid
-        android:color="#75a6abc9"/>
+        android:color="#753f7ec6"/> <!-- #75a6abc9 -->
 
     <!-- these aren't changing anything pls help the circles are too big -->
     <size
