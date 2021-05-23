@@ -74,135 +74,165 @@
                 android:textSize="22sp" />
         </LinearLayout>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:gravity="center"
-                android:text="@string/symp_text1"
-                android:textSize="16sp" />
+            android:layout_height="wrap_content">
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <SeekBar
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="10"/>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginLeft="10dp"
-                        android:text="@string/lower_lim"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
-                        android:text="@string/upper_lim"/>
-                </RelativeLayout>
-            </LinearLayout>
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/symp_text2"
-                android:textSize="16sp" />
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <SeekBar
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="10"/>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
                         android:gravity="center"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginLeft="10dp"
-                        android:text="@string/lower_lim"/>
-                    <TextView
-                        android:layout_width="wrap_content"
+                        android:text="@string/symp_text1"
+                        android:textSize="16sp" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.7"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
-                        android:text="@string/upper_lim"/>
-                </RelativeLayout>
-            </LinearLayout>
+                        android:orientation="vertical">
+                        <SeekBar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="10"/>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="10dp"
+                                android:text="@string/lower_lim"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10dp"
+                                android:text="@string/upper_lim"/>
+                        </RelativeLayout>
+                    </LinearLayout>
 
-        </LinearLayout>
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/symp_text3"
-                android:textSize="16sp" />
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="0.7"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <SeekBar
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="10"/>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:gravity="center"
+                    android:orientation="horizontal">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginLeft="10dp"
-                        android:text="@string/lower_lim"/>
-                    <TextView
-                        android:layout_width="wrap_content"
+                        android:text="@string/symp_text2"
+                        android:textSize="16sp" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.7"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
-                        android:text="@string/upper_lim"/>
-                </RelativeLayout>
-            </LinearLayout>
+                        android:orientation="vertical">
+                        <SeekBar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="10"/>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="10dp"
+                                android:text="@string/lower_lim"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10dp"
+                                android:text="@string/upper_lim"/>
+                        </RelativeLayout>
+                    </LinearLayout>
 
-        </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/symp_text3"
+                        android:textSize="16sp" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.7"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <SeekBar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="10"/>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="10dp"
+                                android:text="@string/lower_lim"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10dp"
+                                android:text="@string/upper_lim"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:id="@+id/saveButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginRight="20dp"
+                            android:text="Save"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:onClick="save" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 
