@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.concussionapp.R
 import android.animation.ValueAnimator
+import android.content.Intent
 import android.graphics.Color
 import android.util.Log
 import android.widget.TextView
@@ -81,11 +82,13 @@ class Calendar : Fragment() {
                         // in case we overwrite it and need to reload it.
                         val currentSelection = selectedDate
                         if (currentSelection == day.date) {
-                            // If the user clicks the same date, clear selection.
+                            val intent = Intent(this@Calendar.context, ExpandedDay::class.java)
+                            startActivity(intent)
+                           /* // If the user clicks the same date, clear selection.
                             selectedDate = null
                             // Reload this date so the dayBinder is called
                             // and we can REMOVE the selection background.
-                            calendarView.notifyDateChanged(currentSelection)
+                            calendarView.notifyDateChanged(currentSelection) */
                         } else {
                             selectedDate = day.date
                             // Reload the newly selected date so the dayBinder is
