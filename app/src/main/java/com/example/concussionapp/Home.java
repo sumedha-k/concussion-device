@@ -162,7 +162,7 @@ public class Home extends Fragment {
         LineDataSet set = new LineDataSet(null, "Dynamic Data");
         set.setAxisDependency(YAxis.AxisDependency.LEFT);
         set.setLineWidth(3f);
-        set.setColor(ColorTemplate.getHoloBlue());
+        set.setColor(getResources().getColor(R.color.bmes_color));
         set.setHighlightEnabled(false);
         set.setDrawValues(false);
         set.setDrawCircles(false);

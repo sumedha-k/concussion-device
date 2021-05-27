@@ -82,7 +82,9 @@ class Calendar : Fragment() {
                         // in case we overwrite it and need to reload it.
                         val currentSelection = selectedDate
                         if (currentSelection == day.date) {
-                            val intent = Intent(this@Calendar.context, ExpandedDay::class.java)
+                            val intent = Intent(this@Calendar.context, ExpandedDay::class.java).apply {
+                                putExtra("DATE", day.date.toString())
+                            }
                             startActivity(intent)
                            /* // If the user clicks the same date, clear selection.
                             selectedDate = null

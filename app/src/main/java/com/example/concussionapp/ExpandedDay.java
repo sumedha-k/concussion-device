@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
@@ -19,6 +21,10 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ExpandedDay extends AppCompatActivity {
 
@@ -41,8 +47,6 @@ public class ExpandedDay extends AppCompatActivity {
     private final float SAMPLE_RATE = 90;
     private final float SAMPLE_PERIOD = 1/SAMPLE_RATE;
 
-    private DataViewModel viewModel;
-
     public ExpandedDay() {
         // Required empty public constructor
     }
@@ -51,15 +55,22 @@ public class ExpandedDay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expanded_day); // remove because of onCreateView?
-    }
 
-    /** @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_expanded_day, container, false); // changed this to R.layout.activity_expanded_day, but still did not display black when i had it uncommented
+        TextView dateText = findViewById(R.id.dateText);
+        final Intent intent = getIntent();
+        String input = intent.getStringExtra("DATE");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date d = null;
+        try {
+            d = sdf.parse(input);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        sdf.applyPattern("MMMM dd, yyyy");
+        String output = sdf.format(d);
+        dateText.setText(output);
 
-        mChart = (LineChart) view.findViewById(R.id.lineChart);
+        mChart = (LineChart) findViewById(R.id.lineChartExpanded);
         mChart.getDescription().setEnabled(true);
         mChart.setNoDataText("No data currently");
         mChart.setNoDataTextColor(Color.WHITE);
@@ -95,23 +106,57 @@ public class ExpandedDay extends AppCompatActivity {
         YAxis y2 = mChart.getAxisRight();
         y2.setEnabled(false);
 
-        feedMultiple();
+        getData();
+    }
 
-        viewModel = new ViewModelProvider(requireActivity()).get(DataViewModel.class);  // requireActivity() unresolved
-        final Observer<String> dataObserver = new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable final String newData) {
-                // Update the UI, in this case, a TextView.
-                int out = displayData(newData);
-                addEntry(out);
-            }
-        };
-        viewModel.getBtData().observe(getViewLifecycleOwner(), dataObserver);   // getViewLifecycleOwner() unresolved
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.activity_expanded_day, container, false); // changed this to R.layout.activity_expanded_day, but still did not display black when i had it uncommented
+
+        mChart = (LineChart) view.findViewById(R.id.lineChartExpanded);
+        mChart.getDescription().setEnabled(true);
+        mChart.setNoDataText("No data currently");
+        mChart.setNoDataTextColor(Color.WHITE);
+
+        mChart.setTouchEnabled(true);
+        mChart.setDragEnabled(true);
+        mChart.setScaleEnabled(true);
+        mChart.setDrawGridBackground(false);
+        mChart.setBackgroundColor(Color.BLACK);
+        mChart.setPinchZoom(true);
+
+        LineData data = new LineData();
+        data.setValueTextColor(Color.WHITE);
+
+        mChart.setData(data);
+
+        Legend leg = mChart.getLegend();
+        leg.setForm(Legend.LegendForm.LINE);
+        leg.setTextColor(Color.WHITE);
+
+        XAxis x1 = mChart.getXAxis();
+        x1.setTextColor(Color.WHITE);
+        x1.setDrawGridLines(false);
+        x1.setAvoidFirstLastClipping(true);
+        x1.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+        YAxis y1 = mChart.getAxisLeft();
+        y1.setTextColor(Color.WHITE);
+        y1.setDrawGridLines(true);
+        y1.setAxisMaximum(valueMax);
+        y1.setAxisMinimum(valueMin);
+
+        YAxis y2 = mChart.getAxisRight();
+        y2.setEnabled(false);
+
+        getData();
 
         return view;
     }
 
-    private void addEntry(int in) {
+    private void getData() {
         LineData data = mChart.getData();
 
         if(data != null) {
@@ -122,8 +167,10 @@ public class ExpandedDay extends AppCompatActivity {
                 data.addDataSet(set);
             }
 
-            data.addEntry(new Entry( set.getEntryCount()*SAMPLE_PERIOD, (float)(in)), 0);
-//            data.addEntry(new Entry( set.getEntryCount(), (float)(Math.random()*120)), 0);
+
+            for(int i = 0; i < 200; i++) {
+                data.addEntry(new Entry( set.getEntryCount(), (float)(Math.random()*120)), 0);
+            }
             mChart.notifyDataSetChanged();
 
             mChart.setVisibleXRangeMaximum(150f);
@@ -135,7 +182,7 @@ public class ExpandedDay extends AppCompatActivity {
         LineDataSet set = new LineDataSet(null, "Dynamic Data");
         set.setAxisDependency(YAxis.AxisDependency.LEFT);
         set.setLineWidth(3f);
-        set.setColor(ColorTemplate.getHoloBlue());
+        set.setColor(getResources().getColor(R.color.bmes_color));
         set.setHighlightEnabled(false);
         set.setDrawValues(false);
         set.setDrawCircles(false);
@@ -143,42 +190,4 @@ public class ExpandedDay extends AppCompatActivity {
         set.setCubicIntensity(0.2f);
         return set;
     }
-
-    private void feedMultiple() {
-
-        if (thread != null){
-            thread.interrupt();
-        }
-
-        thread = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                while (true){
-                    plotData = true;
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-
-        thread.start();
-    }
-
-    public int displayData(String str) {
-        if(str == null) {
-            return 0;
-        }
-        String[] strArr = str.split("\n");
-        System.out.println("String Data: " + strArr[0]);
-        int pt = 0;
-        if(!strArr[0].equals("d3ے{�")) {
-            pt = Integer.parseInt(strArr[0]);
-        }
-        return pt;
-    } **/
 }
