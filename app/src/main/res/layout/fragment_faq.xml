@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Faq"
-    android:background="@android:color/holo_purple"
+    android:background="@android:colors/bmes_color"
     >
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -45,34 +45,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="How do I put on the helmet?"
+                            android:text="What does the helmet look like?"
                             android:textAppearance="?attr/textAppearanceBody1"
                             android:textColor="?android:attr/textColorSecondary"
                             />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Answer."
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
-                            android:text="How does the helmet work?"
-                            android:textAppearance="?attr/textAppearanceBody1"
-                            android:textColor="?android:attr/textColorSecondary"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Answer"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary"
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="194dp"
+                            android:src="@drawable/bmes_helmet"
+                            android:scaleType="centerCrop"
                             />
 
                         <TextView
@@ -185,44 +166,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <!-- Title, secondary and supporting text -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Data"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Explain graph"
-                            android:textAppearance="?attr/textAppearanceBody1"
-                            android:textColor="?android:attr/textColorSecondary"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Photo"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary"
-                            />
-
-                    </LinearLayout>
-
-                </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
