@@ -179,7 +179,7 @@ public class ExpandedDay extends AppCompatActivity {
     }
 
     private LineDataSet createSet() {
-        LineDataSet set = new LineDataSet(null, "Dynamic Data");
+        LineDataSet set = new LineDataSet(null, "EEG Data");
         set.setAxisDependency(YAxis.AxisDependency.LEFT);
         set.setLineWidth(3f);
         set.setColor(getResources().getColor(R.color.bmes_color));
